@@ -5,7 +5,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 
 # Load dataset (replace with your CSV)
-data = pd.read_csv("sales_data.csv")
+data = pd.read_csv("D:\FUTURE INTERN\DATASET 1.txt")
 
 # Feature engineering (example: month extraction)
 data['Month'] = pd.to_datetime(data['Date']).dt.month
@@ -25,7 +25,9 @@ y_pred = model.predict(X_test)
 
 # Evaluation
 print("MAE:", mean_absolute_error(y_test, y_pred))
-print("RMSE:", mean_squared_error(y_test, y_pred, squared=False))
+import numpy as np
+print("RMSE:", np.sqrt(mean_squared_error(y_test, y_pred)))
+
 
 # Visualization
 plt.plot(y_test.values, label="Actual")
